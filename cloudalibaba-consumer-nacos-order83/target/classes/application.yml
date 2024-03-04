@@ -1,0 +1,14 @@
+server:
+  port: 83
+
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+#消费者应用将要去访问的微服务名称(nacos微服务提供者叫什么你写什么)
+#消费者应用在调用其他微服务时,需要考虑考虑负载均衡。所以消费者应用需要使用loadBalance或者能够实现负载均衡的远程调用框架
+service-url:
+  nacos-user-service: http://nacos-payment-provider
